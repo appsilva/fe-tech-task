@@ -6,6 +6,9 @@ import { LoadingSpinner } from '@/components/LoadingSpinner';
 /**
  * Asynchronously loads the `Feed` component using `next/dynamic`.
  * Shows a loading spinner while the component is being loaded.
+ * In this case, since this component is being called on the home page,
+ * and there is only another page in the app, it will only be usefull if
+ * the user lands directly on the detail page. But serves as a demonstration.
  */
 const DynamicFeed = dynamic(
   () => import('../components/Feed').then((mod) => mod.Feed),

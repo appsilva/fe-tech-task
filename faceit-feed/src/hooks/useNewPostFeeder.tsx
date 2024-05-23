@@ -18,34 +18,36 @@ export const useNewPostFeeder = () => {
    * @returns Cleanup function to clear interval and timeout when component unmounts.
    */
   const feedNewPosts = () => {
-    intervalRef.current = setInterval(() => {
-      const randomId = Math.floor(Math.random() * 10) + 1;
+    if (!intervalRef.current) {
+      intervalRef.current = setInterval(() => {
+        const randomId = Math.floor(Math.random() * 10) + 1;
 
-      const newPost = {
-        id: Date.now(),
-        userId: randomId,
-        title: 'New Post Title',
-        body: 'This is the body of the new post.',
-        highlighted: true,
-        author: {
-          id: randomId,
-          name: 'Leanne Graham',
-          avatar: `https://i.pravatar.cc/150?img=${randomId}`,
-        },
-      };
+        const newPost = {
+          id: Date.now(),
+          userId: randomId,
+          title: 'New Post Title',
+          body: 'This is the body of the new post.',
+          highlighted: true,
+          author: {
+            id: randomId,
+            name: 'Leanne Graham',
+            avatar: `https://i.pravatar.cc/150?img=${randomId}`,
+          },
+        };
 
-      dispatch(highlightNewPost(newPost));
-      toast('A new post has been added!');
+        dispatch(highlightNewPost(newPost));
+        toast('A new post has been added!');
 
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
 
-      timeoutRef.current = setTimeout(
-        () => dispatch(removeHighlight(newPost.id)),
-        15000
-      );
-    }, 60000);
+        timeoutRef.current = setTimeout(
+          () => dispatch(removeHighlight(newPost.id)),
+          15000
+        );
+      }, 60000);
+    }
 
     return () => {
       if (intervalRef.current) {

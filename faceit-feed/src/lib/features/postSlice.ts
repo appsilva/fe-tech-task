@@ -64,7 +64,6 @@ const postSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPosts.pending, (state) => {
-      console.log('entrou');
       state.isLoading = true;
     });
     builder.addCase(fetchPosts.fulfilled, (state, action) => {
