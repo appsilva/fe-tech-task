@@ -8,6 +8,7 @@ import {
 import { fetchUsers } from '@/lib/features/userSlice';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import { UserPost } from '@/types';
+import { useNewPostFeeder } from '@/hooks';
 import { Post } from '@/components/Post';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
 
@@ -18,6 +19,7 @@ import { LoadingSpinner } from '@/components/LoadingSpinner';
 export const Feed = () => {
   const dispatch = useAppDispatch();
   const [isLoading, setIsLoading] = useState(true);
+  const { feedNewPosts } = useNewPostFeeder();
   const { data: posts, isError } = useAppSelector(selectPosts);
 
   const fetchMorePosts = () => {
@@ -35,6 +37,7 @@ export const Feed = () => {
     // If no posts are loaded initially, fetch data and trigger feedNewPosts
     if (!posts?.length) {
       fetchData();
+      feedNewPosts();
     }
 
     // Restore scroll position from session storage, if defined
