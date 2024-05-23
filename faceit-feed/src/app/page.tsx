@@ -4,19 +4,6 @@ import dynamic from 'next/dynamic';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
 
 /**
- * Main container styled component for the Home page.
- */
-const MainContainer = styled.main`
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 2rem;
-
-  @media (min-width: 768px) {
-    padding: 4rem;
-  }
-`;
-
-/**
  * Asynchronously loads the `Feed` component using `next/dynamic`.
  * Shows a loading spinner while the component is being loaded.
  */
@@ -26,6 +13,16 @@ const DynamicFeed = dynamic(
     loading: () => <LoadingSpinner />,
   }
 );
+
+const MainContainer = styled.main`
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem;
+
+  @media (min-width: 768px) {
+    padding: 4rem;
+  }
+`;
 
 /**
  * Home page component.

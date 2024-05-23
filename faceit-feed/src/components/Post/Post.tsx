@@ -37,7 +37,7 @@ export const Post = ({
         <Avatar src={avatar} alt={name} />
 
         <div>
-          <h3>{name}</h3>
+          <h2>{name}</h2>
           <p>{truncatedBody}</p>
         </div>
       </PostContainer>
