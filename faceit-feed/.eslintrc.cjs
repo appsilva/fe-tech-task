@@ -1,0 +1,19 @@
+module.exports = {
+  root: true,
+  extends: [
+    'next/core-web-vitals',
+    'prettier',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['prettier', '@typescript-eslint'],
+  rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+      },
+    ],
+  },
+};

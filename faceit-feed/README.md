@@ -1,36 +1,51 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Prerequisites
 
-First, run the development server:
+- Node.js v18
+- Yarn
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Setup
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Clone the repo
+- `yarn` for package install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `yarn dev` - Run the app in development mode, open [http://localhost:3000/](http://localhost:3000/) with your browser to see the result.
+- `yarn build` - Builds the app for production
+- `yarn start` - Serve the production build
+- `yarn lint` - Run eslint
+- `yarn format` - Run prettier
+- `yarn test` - Run all unit tests
+- `yarn test:watch` - Run tests in watch mode
 
-## Learn More
+#
+#
+#
 
-To learn more about Next.js, take a look at the following resources:
+# Decision Report
+I had a great time developing this app, it's really interesting, and I hope you find it fitting of your expectations. Below I will describe some of the reasonings behind my decisions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Why use Create Next App?
+`create-next-app` allows us to create a new Next.js app within seconds and it's officially maintained by the creators of Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Documentation
+I left some comments throughout the app, to facilitate the understading of some of the logic. Also, documented some of the components and functions in JSDoc notation.
 
-## Deploy on Vercel
+### Tech Stack
+For the decision of the tech stack, I followed the recommended technologies from the task script and the [careers page](https://eslfaceitgroup.com/blog/jobs/talent-pool-role-senior-software-engineer-frontend-remote/). These also match the stack I'm familiar with, except for Redux, which I haven't worked with for a while.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Disclaimers
+Due to some time constraints, there are some things that could use some improvements, like:
+- **Test coverage**: Only wrote tests for the utils and the main components, but it should be enough to prove I am familiar with it.
+- **Poor design of pages**: The design of the feed and detail pages are as basic as it gets. This would be one of the improvements needed.
+- **Other possible approaches**: All the solutions presented here, both of development and architectural, are one possibility out of many, like regarding the folder structure, file naming, and so on. I've worked with different approaches, and this is one option.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Possible Improvements
+
+- **Internationalization (i18n)**: Adding support for multiple languages would enhance accessibility and reach.
+- **Accessibility (a11y)**: Enhancing accessibility features would improve usability for all users.
+- **Loading animation**: Standardize loading animation throughout the app, on all components.
+- **Design improvements**: Enhancing the design elements on the feed and detail pages would improve aesthetics and user engagement.
+- **Enhanced test cases and coverage**: Expanding and improving test cases to all components, as well as increasing test coverage, would ensure better code quality and reduce the likelihood of regressions.
