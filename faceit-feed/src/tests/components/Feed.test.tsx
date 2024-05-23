@@ -98,7 +98,7 @@ describe('Feed component', () => {
     });
   });
 
-  it('displays an error message when there is an error', () => {
+  it('displays an error message when there is an error', async () => {
     (useAppSelector as unknown as jest.Mock).mockReturnValue({
       data: [],
       isError: true,
@@ -106,8 +106,10 @@ describe('Feed component', () => {
 
     render(<Feed />);
 
-    expect(
-      screen.getByText('Something went wrong while fetching the posts')
-    ).toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        screen.getByText('Something went wrong while fetching the posts')
+      ).toBeInTheDocument()
+    );
   });
 });
